@@ -1,0 +1,15 @@
+title:
+command: login
+items:
+- type: text
+  field: account
+  prompt: 账号
+- type: password
+  field: password
+  prompt: 密码
+- type: checkbox
+  field: remember
+  label: 记住密码
+- type: checkbox
+  field: auto
+  label: 自动登录

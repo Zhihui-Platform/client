@@ -1,0 +1,167 @@
+title: 测试表单
+command: test
+items:
+- type: text
+  placeholder: 普通文本框
+  field: text
+  clearable: true
+- type: textarea
+  field: textarea
+  rows: 4
+  placeholder: 多行文本框
+- type: password
+  field: password
+  placeholder: 密码框
+- type: checkbox
+  field: checkbox
+  # border: true
+  label: 多选框
+- type: checkboxes
+  field: checkboxes
+  button: true
+  labels:
+  - label: 选项1
+    value: opt1
+  - label: 选项2
+    value: opt2
+  - label: 选项3
+    value: opt3
+    disabled: true
+  - label: 选项4
+    value: opt4
+  min: 0
+  max: 2
+- type: radios
+  field: radios
+  border: true
+  labels:
+  - label: 选项1
+    value: opt1
+  - label: 选项2
+    value: opt2
+  - label: 选项3
+    value: opt3
+- type: colorpicker
+  field: colorpicker
+  alpha: true
+- type: datepicker
+  field: datepicker
+  object: month
+  placeholder: 日期（时间）选择器
+- type: daterangepicker
+  field: daterangepicker
+  object: datetime
+  startPlaceholder: 日期（时间）区域选择器 - 启示
+  endPlaceholder: 终止
+  rangeSeparator: 到
+  format: YYYY-MM-DD HH:mm:ss
+- type: timepicker
+  field: timepicker
+  placeholder: 时间选择器
+- type: timerangepicker
+  field: timerangepicker
+  startPlaceholder: 时间区域选择器 - 开始
+  endPlaceholder: 终止
+  rangeSeparator: 到
+- type: inputnumber
+  field: inputnumber
+  min: 0
+  max: 100
+  step: 2
+  precision: 1
+  controls: true
+  controlsRightPosition: true
+  placeholder: 数字输入
+- type: rate
+  field: rate
+  allowHalf: true
+- type: multiselect
+  field: multiselect
+  placeholder: 请选择
+  options:
+  - label: 选项1
+    value: opt1
+  - label: 选项2
+    value: opt2
+  - label: 选项3
+    value: opt3
+    disabled: true
+  - label: 选项4
+    value: opt4
+  clearable: true
+  collapsed: true
+  tooltip: true
+  filterable: true
+  allowCreate: true
+  limit: 2
+- type: select
+  field: select
+  placeholder: 请选择
+  options:
+  - label: 选项1
+    value: opt1
+  - label: 选项2
+    value: opt2
+  - label: 选项3
+    value: opt3
+    disabled: true
+  - label: 选项4
+    value: opt4
+  clearable: true
+  filterable: true
+- type: treeselect
+  field: treeselect
+  placeholder: 树形选择
+  anyLevel: true
+  checkbox: true
+  options:
+  - label: 节点 1
+    value: node 1
+    children:
+    - label: 节点 1-1
+      value: node 1-1
+    - label: 节点 1-2
+      value: node 1-2
+      disabled: true
+  filterable: true
+  clearable: true
+- type: multitreeselect
+  field: multitreeselect
+  placeholder: 树形选择
+  anyLevel: true
+  checkbox: true
+  options:
+  - label: 节点 1
+    value: node 1
+    children:
+    - label: 节点 1-1
+      value: node 1-1
+    - label: 节点 1-2
+      value: node 1-2
+      disabled: true
+  filterable: true
+  clearable: true
+  collapsed: true
+  tooltip: true
+- type: slider
+  field: slider
+  marks:
+    20: 世界等级1
+    25: 世界等级2（需突破）
+    30: 世界等级3
+    35: 世界等级4（需突破）
+    40: 世界等级5
+    45: 世界等级6（需突破）
+    50: 世界等级7（需突破）
+    55: 世界等级8（需突破）
+  showStep: true
+  placement: left
+  showInput: true
+  showInputControls: true
+  step: 5
+- type: rangeslider
+  field: rangeslider
+- type: switch
+  field: switch
+  activeLabel: 打开
+  inactiveLabel: 关闭

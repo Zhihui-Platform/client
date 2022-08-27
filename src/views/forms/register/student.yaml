@@ -1,0 +1,31 @@
+title: 学生注册
+command: register-student
+items:
+- type: input
+  field: classid # 如智慧团建的注册，首先填写好组织，然后填写个人信息
+  prompt: 班级
+  placeholder: 请输入班级序号，若您不知道请向老师问询
+- type: input
+  field: name
+  prompt: 姓名
+  placeholder: 请输入
+- type: input
+  field: account
+  prompt: 账号
+  placeholder: 请输入您用于登录的账号名字
+- type: input
+  field: number
+  prompt: 学号
+  placeholder: 8位数字学号，请输入
+- type: input
+  field: id_card
+  prompt: 身份证号
+  placeholder: 身份证号，用于后期登录入团、入党（如果可能）的信息
+- type: password
+  field: password
+  prompt: 密码
+  placeholder: 请输入密码
+- type: password
+  field: password_again
+  prompt: 密码
+  placeholder: 请再次输入密码

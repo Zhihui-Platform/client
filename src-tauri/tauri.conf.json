@@ -1,0 +1,70 @@
+{
+  "build": {
+    "beforeBuildCommand": "pnpm run build",
+    "beforeDevCommand": "pnpm run dev",
+    "devPath": "http://localhost:5173/",
+    "distDir": "../dist"
+  },
+  "package": {
+    "productName": "ZH-Desktop",
+    "version": "0.1.0"
+  },
+  "tauri": {
+    "allowlist": {
+      "all": true
+    },
+    "bundle": {
+      "active": true,
+      "category": "DeveloperTool",
+      "copyright": "copyright© 2022 Zhihui Platform Developer Team",
+      "deb": {
+        "depends": []
+      },
+      "externalBin": [],
+      "icon": [
+        "icons/32x32.png",
+        "icons/128x128.png",
+        "icons/128x128@2x.png",
+        "icons/icon.icns",
+        "icons/icon.ico"
+      ],
+      "identifier": "com.zhihui.client",
+      "longDescription": "The Client Application for Zhihui Platform",
+      "macOS": {
+        "entitlements": null,
+        "exceptionDomain": "",
+        "frameworks": [],
+        "providerShortName": null,
+        "signingIdentity": null
+      },
+      "resources": [],
+      "shortDescription": "",
+      "targets": "all",
+      "windows": {
+        "certificateThumbprint": null,
+        "digestAlgorithm": "sha256",
+        "timestampUrl": "",
+        "webviewInstallMode": { "type": "embedBootstrapper", "silent": true },
+        "wix": {
+          "language": ["zh-CN", "en-US", "jp-JP", "ko-KR"]
+        }
+      }
+    },
+    "security": {
+      "csp": null
+    },
+    "updater": {
+      "active": false
+    },
+    "windows": [
+      {
+        "fullscreen": false,
+        "height": 667.5,
+        "resizable": true,
+        "title": "智会平台客户端",
+        "width": 1186.7,
+        "decorations": false
+      }
+    ]
+  }
+}
