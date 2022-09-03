@@ -7,7 +7,7 @@
   },
   "package": {
     "productName": "ZH-Client",
-    "version": "0.0.0-trial.1"
+    "version": "0.1.0-draft.1"
   },
   "tauri": {
     "allowlist": {
