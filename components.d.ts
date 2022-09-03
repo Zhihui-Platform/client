@@ -8,6 +8,7 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     ElButton: typeof import('element-plus/es')['ElButton']
+    ElCard: typeof import('element-plus/es')['ElCard']
     ElCheckbox: typeof import('element-plus/es')['ElCheckbox']
     ElCheckboxButton: typeof import('element-plus/es')['ElCheckboxButton']
     ElCheckboxGroup: typeof import('element-plus/es')['ElCheckboxGroup']
@@ -24,14 +25,21 @@ declare module '@vue/runtime-core' {
     ElRadioButton: typeof import('element-plus/es')['ElRadioButton']
     ElRadioGroup: typeof import('element-plus/es')['ElRadioGroup']
     ElRate: typeof import('element-plus/es')['ElRate']
+    ElResult: typeof import('element-plus/es')['ElResult']
     ElRow: typeof import('element-plus/es')['ElRow']
     ElSelect: typeof import('element-plus/es')['ElSelect']
     ElSlider: typeof import('element-plus/es')['ElSlider']
     ElSwitch: typeof import('element-plus/es')['ElSwitch']
     ElTimePicker: typeof import('element-plus/es')['ElTimePicker']
     ElTreeSelect: typeof import('element-plus/es')['ElTreeSelect']
+    Error: typeof import('./src/components/articles/Error.vue')['default']
+    LoadingMarkdown: typeof import('./src/components/articles/LoadingMarkdown.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    ZhArticle: typeof import('./src/components/articles/ZhArticle.vue')['default']
     ZhForm: typeof import('./src/components/forms/ZhForm.vue')['default']
+  }
+  export interface ComponentCustomProperties {
+    vLoading: typeof import('element-plus/es')['ElLoadingDirective']
   }
 }

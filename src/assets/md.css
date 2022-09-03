@@ -1,0 +1,3 @@
+.markdown-body {
+  @use "node_modules/vitepress/dist/client/theme-default/styles/base.css"
+}

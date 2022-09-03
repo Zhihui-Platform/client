@@ -7,9 +7,10 @@ items:
 - type: password
   field: password
   prompt: 密码
-- type: checkbox
-  field: remember
-  label: 记住密码
-- type: checkbox
-  field: auto
-  label: 自动登录
+- type: checkboxes
+  field: products
+  labels:
+  - label: 保存密码
+    value: save_password
+  - label: 自动登录
+    value: auto_login

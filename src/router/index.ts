@@ -19,6 +19,10 @@ const router = createRouter({
       path: "/ops/",
       component: () => import("../views/ops/IndexView.vue"),
     },
+    {
+      path: "/mdtest",
+      component: () => import("../components/articles/ZhArticle.vue"),
+    }
   ],
 });
 

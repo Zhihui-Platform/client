@@ -1,0 +1,3 @@
+[submodule "vitepress"]
+	path = addons/vitepress
+	url = https://github.com/vuejs/vitepress.git

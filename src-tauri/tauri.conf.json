@@ -6,7 +6,7 @@
     "distDir": "../dist"
   },
   "package": {
-    "productName": "ZH-Desktop",
+    "productName": "ZH-Client",
     "version": "0.1.0"
   },
   "tauri": {

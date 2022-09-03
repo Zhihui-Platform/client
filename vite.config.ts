@@ -1,4 +1,5 @@
 import { fileURLToPath, URL } from "node:url";
+import { resolve } from "node:path";
 
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
@@ -8,7 +9,10 @@ import react from "@vitejs/plugin-react";
 
 import AutoImport from "unplugin-auto-import/vite";
 import VueComponents from "unplugin-vue-components/vite";
-import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
+import Icons from "unplugin-icons/vite"
+
+import IconsResolver from "unplugin-icons/resolver"
+import { ElementPlusResolver, AntDesignVueResolver } from "unplugin-vue-components/resolvers";
 
 import yaml from "@rollup/plugin-yaml";
 import json from "@rollup/plugin-json";
@@ -17,24 +21,28 @@ import dsv from "@rollup/plugin-dsv";
 import graphql from "@rollup/plugin-graphql";
 import url from "@rollup/plugin-url";
 import wasm from "@rollup/plugin-wasm";
+import dynamicImportVars from "@rollup/plugin-dynamic-import-vars";
 
 import { VitePWA as pwa } from "vite-plugin-pwa";
-import prismjs from "vite-plugin-prismjs";
 import monacoEditor from "vite-plugin-monaco-editor";
+import vueMarkdown from "vite-plugin-vue-markdown";
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    vue(),
+    vue({
+      include: [/\.vue$/, /\.md$/],
+    }),
     vueJsx(),
     legacy(),
     react(),
     AutoImport({
-      resolvers: [ElementPlusResolver()],
+      resolvers: [ElementPlusResolver(), AntDesignVueResolver(), IconsResolver()],
     }),
     VueComponents({
-      resolvers: [ElementPlusResolver()],
+      resolvers: [ElementPlusResolver(), AntDesignVueResolver(), IconsResolver()],
     }),
+    Icons(),
     yaml(),
     json(),
     dataUrl(),
@@ -42,9 +50,45 @@ export default defineConfig({
     graphql(),
     url(),
     wasm(),
+    // dynamicImportVars(),
     pwa(),
-    prismjs(),
+    // prismjs({
+    //   languages: ["markdown", "javascript", "typescript", "java", "csharp", "python", "json", "css", "html", "xml", "bash", "powershell", "sql", "yaml", "rust", "go"],
+    //   "plugins": ["line-numbers", "show-language", "copy-to-clipboard"],
+    //   "css": true,
+    // }),
     monacoEditor({}),
+    vueMarkdown({
+      markdownItOptions: {
+        html: true,
+        linkify: true,
+        typographer: true,
+      },
+      markdownItSetup(md) {
+        const plugins = require("./addons/vitepress/dist/plugins.min.cjs");
+        md.use(plugins.containerPlugin);
+        md.use(plugins.linkPlugin);
+        md.use(plugins.highlightLinePlugin);
+        md.use(plugins.lineNumberPlugin);
+        md.use(plugins.preWrapperPlugin);
+        md.use(require("markdown-it-katex"));
+        md.use(require("markdown-it-footnote"));
+        md.use(require("markdown-it-deflist"));
+        md.use(require("markdown-it-abbr"));
+        md.use(require("markdown-it-attrs"));
+        md.use(require("markdown-it-emoji"));
+        md.use(require("markdown-it-sub"));
+        md.use(require("markdown-it-sup"));
+        md.use(require("markdown-it-ins"));
+        md.use(require("markdown-it-mark"));
+        md.use(require("markdown-it-task-lists"));
+        md.use(require("markdown-it-imsize"), { autofill: true });
+        md.use(require("markdown-it-plantuml"));
+        md.use(require("markdown-it-mermaid").default);
+        md.use(require("markdown-it-shiki").default);
+      },
+      wrapperClasses: "markdown-body vp-doc",
+    }),
   ],
   resolve: {
     alias: {
@@ -55,5 +99,10 @@ export default defineConfig({
     postcss: {
       plugins: [require("tailwindcss"), require("autoprefixer")],
     },
+    preprocessorOptions: {
+      sass: {
+        includePaths: [resolve("node_modules")],
+      }
+    }
   },
 });

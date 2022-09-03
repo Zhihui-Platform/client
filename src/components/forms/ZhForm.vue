@@ -99,8 +99,8 @@ function submit() {
         >
           <ElCheckbox
             v-for="box in item.labels"
-            :key="box"
-            :label="box"
+            :key="box.value"
+            :label="box.value"
             :border="item.border"
             :disabled="box.disabled"
           >
