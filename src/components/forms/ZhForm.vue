@@ -48,7 +48,6 @@ form.value.items.forEach((item) => {
 });
 
 function submit() {
-  
   invoke(form.value.command, result.value);
 }
 </script>

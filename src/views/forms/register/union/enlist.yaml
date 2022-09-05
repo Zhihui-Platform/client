@@ -1,11 +1,11 @@
 title: 参加竞选信息填报
 command: enlist-reg
 items:
-- type: textarea
-  field: introduction
-  prompt: 自我介绍
-  placeholder: 请输入您的自我介绍，150字左右
-- type: input
-  field: target
-  prompt: 目标
-  placeholder: 竞选目标
+  - type: textarea
+    field: introduction
+    prompt: 自我介绍
+    placeholder: 请输入您的自我介绍，150字左右
+  - type: input
+    field: target
+    prompt: 目标
+    placeholder: 竞选目标

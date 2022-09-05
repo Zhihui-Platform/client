@@ -1,16 +1,16 @@
 title:
 command: login
 items:
-- type: text
-  field: account
-  prompt: 账号
-- type: password
-  field: password
-  prompt: 密码
-- type: checkboxes
-  field: products
-  labels:
-  - label: 保存密码
-    value: save_password
-  - label: 自动登录
-    value: auto_login
+  - type: text
+    field: account
+    prompt: 账号
+  - type: password
+    field: password
+    prompt: 密码
+  - type: checkboxes
+    field: products
+    labels:
+      - label: 保存密码
+        value: save_password
+      - label: 自动登录
+        value: auto_login
