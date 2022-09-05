@@ -7,7 +7,7 @@ const data = ref('')
 // data.value = await import("data:application/javascript;base64,ZXhwb3J0IGRlZmF1bHQgJzEyMyc=");
 // console.log(data)
 
-console.log(LoginForm);
+
 </script>
 
 <template>
