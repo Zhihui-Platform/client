@@ -2,12 +2,10 @@
 import LoginForm from "./forms/login.yaml";
 import { ref } from "vue";
 
-const data = ref('')
+const data = ref("");
 
 // data.value = await import("data:application/javascript;base64,ZXhwb3J0IGRlZmF1bHQgJzEyMyc=");
 // console.log(data)
-
-
 </script>
 
 <template>

@@ -20,11 +20,11 @@ This is a info
 This is a details
 :::
 
-|x|y|z|
-|---|---|---|
-|1|2|3|
-|4|5|6|
-|7|8|9|
+| x   | y   | z   |
+| --- | --- | --- |
+| 1   | 2   | 3   |
+| 4   | 5   | 6   |
+| 7   | 8   | 9   |
 
 ```js
 console.log("OK");
@@ -40,7 +40,6 @@ graph TD
     C -->|Two| E[iPhone]
     C -->|Three| F[Car]
 ```
-
 
 # OK
 

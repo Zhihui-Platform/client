@@ -1,6 +1,14 @@
 <script setup lang="ts">
 import { RouterView, useRouter } from "vue-router";
-import { Close, FullScreen, Minus, Moon, Plus, Setting, Sunny } from "@element-plus/icons-vue";
+import {
+  Close,
+  FullScreen,
+  Minus,
+  Moon,
+  Plus,
+  Setting,
+  Sunny,
+} from "@element-plus/icons-vue";
 import { useDark } from "@vueuse/core";
 import { window } from "@tauri-apps/api";
 
@@ -27,21 +35,29 @@ function close() {
 function toConfig() {
   router.push("/config");
 }
-
 </script>
 
 <template>
   <header class="pl-12 pt-4 pr-4 pb-6" @contextmenu.prevent>
-    <ElRow id="nav" style="position: fixed; right: 0;">
+    <ElRow id="nav" style="position: fixed; right: 0">
       <ElCol :span="4" class="pt-2">
         <!-- <span class="text-m text-left">智会平台</span> -->
-        <ElButton text class="text-left" size="small" @click="router.push('/')" style="left: 2rem; position: fixed; backdrop-filter: blur(8rem);">
+        <ElButton
+          text
+          class="text-left"
+          size="small"
+          @click="router.push('/')"
+          style="left: 2rem; position: fixed; backdrop-filter: blur(8rem)"
+        >
           <span class="text-lg px-2 py-2">智会平台</span>
         </ElButton>
       </ElCol>
       <ElCol :span="15" class="drag"></ElCol>
       <ElCol :span="5">
-        <div class="text-right py-0" style="position: fixed; right: 1rem; backdrop-filter: blur(16px);">
+        <div
+          class="text-right py-0"
+          style="position: fixed; right: 1rem; backdrop-filter: blur(16px)"
+        >
           <ElButton
             text
             bg

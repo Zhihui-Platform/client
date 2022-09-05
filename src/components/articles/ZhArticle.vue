@@ -1,5 +1,3 @@
-
-
 <script lang="ts" setup>
 import { defineAsyncComponent } from "vue";
 import LoadingMarkdown from "./LoadingMarkdown.vue";
@@ -15,9 +13,7 @@ const Example = defineAsyncComponent({
 </script>
 
 <template>
-
   <KeepAlive>
     <Component :is="Example" />
   </KeepAlive>
-
 </template>

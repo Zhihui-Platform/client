@@ -22,7 +22,7 @@ const router = createRouter({
     {
       path: "/mdtest",
       component: () => import("../components/articles/ZhArticle.vue"),
-    }
+    },
   ],
 });
 
