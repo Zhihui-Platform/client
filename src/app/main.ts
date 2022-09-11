@@ -1,4 +1,14 @@
-import { app, BrowserWindow, ipcMain, dialog, screen, Tray, Menu, MenuItem, protocol } from "electron";
+import {
+  app,
+  BrowserWindow,
+  ipcMain,
+  dialog,
+  screen,
+  Tray,
+  Menu,
+  MenuItem,
+  protocol,
+} from "electron";
 import { resolve, join } from "node:path";
 
 app.whenReady().then(() => {
@@ -37,7 +47,6 @@ app.whenReady().then(() => {
     mainWindow.loadURL("http://localhost:5173");
     mainWindow.webContents.openDevTools();
   } else {
-
   }
   mainWindow.once("ready-to-show", () => {
     splashscreen.close();
@@ -91,7 +100,7 @@ app.whenReady().then(() => {
     settingsWindow.loadURL("http://localhost:5173/config");
     settingsWindow.once("ready-to-show", () => {
       settingsWindow.show();
-    })
+    });
   });
 });
 

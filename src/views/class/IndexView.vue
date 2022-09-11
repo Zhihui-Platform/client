@@ -3,7 +3,7 @@ import { useHeaderStore } from "@/stores/header";
 
 const header = useHeaderStore();
 
-header.useFunctions(['fullscreen'], "hide");
+header.useFunctions(["fullscreen"], "hide");
 </script>
 
 <template lang="pug">
