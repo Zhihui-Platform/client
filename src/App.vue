@@ -1,99 +1,111 @@
 <script setup lang="ts">
 import { RouterView, useRouter } from "vue-router";
-import { Close, FullScreen, Minus, Moon, Plus, Setting, Sunny } from "@element-plus/icons-vue";
+import {
+  Close,
+  FullScreen,
+  Minus,
+  Moon,
+  Plus,
+  Setting,
+  Sunny,
+} from "@element-plus/icons-vue";
 import { useDark } from "@vueuse/core";
-import { window } from "@tauri-apps/api";
+import { useHeaderStore } from "@/stores/header";
+
+const header = useHeaderStore();
 
 const router = useRouter();
 
 const darkmode = useDark();
 
 function fullScreen() {
-  window.appWindow.setFullscreen(!window.appWindow.isFullscreen());
+  window.zhihui.fullscreen(header.window);
 }
 
 function maximize() {
-  window.appWindow.toggleMaximize();
+  window.zhihui.maximize(header.window);
 }
 
 function minimize() {
-  window.appWindow.minimize();
+  window.zhihui.minimize(header.window);
 }
 
 function close() {
-  window.appWindow.close();
+  window.zhihui.close(header.window);
 }
 
 function toConfig() {
-  router.push("/config");
+  window.zhihui.useSettings();
 }
-
 </script>
 
 <template>
-  <header class="pl-12 pt-4 pr-4 pb-6" @contextmenu.prevent>
-    <ElRow id="nav" style="position: fixed; right: 0;">
-      <ElCol :span="4" class="pt-2">
-        <!-- <span class="text-m text-left">智会平台</span> -->
-        <ElButton text class="text-left" size="small" @click="router.push('/')" style="left: 2rem; position: fixed; backdrop-filter: blur(8rem);">
-          <span class="text-lg px-2 py-2">智会平台</span>
-        </ElButton>
-      </ElCol>
-      <ElCol :span="15" class="drag"></ElCol>
-      <ElCol :span="5">
-        <div class="text-right py-0" style="position: fixed; right: 1rem; backdrop-filter: blur(16px);">
-          <ElButton
-            text
-            bg
-            type="info"
-            @click="toConfig"
-            circle
-            :icon="Setting"
-          />
-          <ElDivider direction="vertical" />
-          <ElSwitch
-            v-model="darkmode"
-            style="
-              --el-switch-off-color: #f1f1f1;
-              --el-switch-on-color: #3e3e3e;
-            "
-            inline-prompt
-            :active-icon="Moon"
-            :inactive-icon="Sunny"
-          />
-          <ElDivider direction="vertical" />
-          <ElButton
-            text
-            bg
-            type="primary"
-            @click="fullScreen"
-            circle
-            :icon="FullScreen"
-          />
-          <ElButton
-            text
-            bg
-            type="warning"
-            @click="minimize"
-            circle
-            :icon="Minus"
-          />
-          <ElButton
-            text
-            bg
-            type="success"
-            @click="maximize"
-            circle
-            :icon="Plus"
-          />
-          <ElButton text bg type="danger" @click="close" circle :icon="Close" />
-        </div>
-      </ElCol>
-    </ElRow>
-  </header>
-  <main class="px-16 pt-8" @contextmenu.prevent>
-    <RouterView />
-  </main>
+  <div class="drag">
+    <header class="pr-4 pb-8 drag" @contextmenu.prevent>
+      <ElImage
+        key="scale-down"
+        src="/icon.png"
+        style="
+          zoom: 12%;
+          left: 1rem;
+          position: fixed;
+          backdrop-filter: blur(8rem);
+        "
+        class="drag"
+      />
+      <div
+        class="text-right pt-4 no-drag"
+        style="position: fixed; right: 1rem; backdrop-filter: blur(16px)"
+      >
+        <ElButton
+          v-if="header.settings"
+          text
+          type="info"
+          @click="toConfig"
+          circle
+          :icon="Setting"
+        />
+        <ElDivider direction="vertical" v-if="header.settings" />
+        <ElSwitch
+          v-if="header.darkmode"
+          v-model="darkmode"
+          style="--el-switch-off-color: #f1f1f1; --el-switch-on-color: #3e3e3e"
+          inline-prompt
+          :active-icon="Moon"
+          :inactive-icon="Sunny"
+        />
+        <ElDivider direction="vertical" v-if="header.darkmode" />
+        <ElButton
+          v-if="header.fullscreen"
+          text
+          type="primary"
+          @click="fullScreen"
+          circle
+          :icon="FullScreen"
+        />
+        <ElButton
+          v-if="header.minimize"
+          text
+          type="warning"
+          @click="minimize"
+          circle
+          :icon="Minus"
+        />
+        <ElButton
+          v-if="header.maximize"
+          text
+          type="success"
+          @click="maximize"
+          circle
+          :icon="Plus"
+        />
+        <ElButton text type="danger" @click="close" circle :icon="Close" />
+      </div>
+    </header>
+    <main class="px-16 pt-8 no-drag" @contextmenu.prevent>
+      <RouterView />
+    </main>
+  </div>
 </template>
 
 <style>
@@ -110,5 +122,13 @@ body {
 
 ::-webkit-scrollbar {
   display: none;
+}
+
+.drag {
+  -webkit-app-region: drag;
+}
+
+.no-drag {
+  -webkit-app-region: no-drag;
 }
 </style>

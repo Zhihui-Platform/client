@@ -1,23 +1,27 @@
-
-
 <script lang="ts" setup>
-import { defineAsyncComponent } from "vue";
-import LoadingMarkdown from "./LoadingMarkdown.vue";
-import Error from "./Error.vue";
+/* global defineProps */
+import { compile } from "./compiler";
+import Prismjs from "prismjs";
+import { onMounted } from "vue";
 
-const Example = defineAsyncComponent({
-  loader: () => import("./example.md"),
-  loadingComponent: LoadingMarkdown,
-  errorComponent: Error,
-  delay: 200,
-  timeout: 3000,
+const props = defineProps<{
+  text: string;
+}>();
+
+const content = compile(props.text);
+
+console.log(content);
+onMounted(() => {
+  Prismjs.highlightAll();
 });
 </script>
 
 <template>
-
-  <KeepAlive>
-    <Component :is="Example" />
-  </KeepAlive>
-
+  <div class="vp-doc" v-html="content"></div>
 </template>
+
+<style scoped>
+.vp-doc {
+  user-select: text;
+}
+</style>

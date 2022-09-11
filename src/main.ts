@@ -5,6 +5,7 @@ import App from "./App.vue";
 import router from "./router";
 
 import ZhForm from "@/components/forms/ZhForm.vue";
+import ZhArticle from "@/components/articles/ZhArticle.vue";
 
 import "./assets/style.less";
 
@@ -23,16 +24,12 @@ import "vitepress/dist/client/theme-default/styles/components/vp-sponsor.css";
 import "element-plus/theme-chalk/index.css";
 import "element-plus/theme-chalk/dark/css-vars.css";
 
-// @ts-ignore
-import Prismjs from "prismjs";
-
-Prismjs.highlightAll();
-
 const app = createApp(App);
 
 app.use(createPinia());
 app.use(router);
 
 app.component(ZhForm.name, ZhForm);
+app.component(ZhArticle.name, ZhArticle);
 
 app.mount("#app");

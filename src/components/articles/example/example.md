@@ -26,7 +26,10 @@ This is a details
 |4|5|6|
 |7|8|9|
 
-```js
+```js {3}
+const x = 1;
+
+x ++;
 console.log("OK");
 ```
 

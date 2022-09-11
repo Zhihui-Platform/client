@@ -28,6 +28,7 @@ import wasm from "@rollup/plugin-wasm";
 
 import { VitePWA as pwa } from "vite-plugin-pwa";
 import monacoEditor from "vite-plugin-monaco-editor";
+import prismjs from "vite-plugin-prismjs";
 import vueMarkdown from "vite-plugin-vue-markdown";
 
 // https://vitejs.dev/config/
@@ -63,6 +64,29 @@ export default defineConfig({
     wasm(),
     pwa(),
     monacoEditor({}),
+    prismjs({
+      languages: [
+        "javascript",
+        "css",
+        "markup",
+        "typescript",
+        "rust",
+        "go",
+        "python",
+        "clike",
+        "bash",
+        "markdown",
+      ],
+      plugins: [
+        "line-numbers",
+        "line-highlight",
+        "show-language",
+        "copy-to-clipboard",
+        "file-highlight",
+      ],
+      theme: "tomorrow",
+      css: true,
+    }),
     vueMarkdown({
       markdownItOptions: {
         html: true,
@@ -109,5 +133,8 @@ export default defineConfig({
         includePaths: [resolve("node_modules")],
       },
     },
+  },
+  define: {
+    "process.env": {},
   },
 });

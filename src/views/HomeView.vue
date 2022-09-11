@@ -1,6 +1,11 @@
 <script lang="ts" setup>
 import LoginForm from "./forms/login.yaml";
 import { ref } from "vue";
+import { useHeaderStore } from "@/stores/header";
+
+const header = useHeaderStore();
+
+header.useFunctions(["close", "minimize", "darkmode", "settings"], "show");
 
 const data = ref('')
 

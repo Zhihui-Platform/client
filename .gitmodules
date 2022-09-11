@@ -1,3 +1,6 @@
-[submodule "vitepress"]
+[submodule "addons/slidev"]
+	path = addons/slidev
+	url = https://github.com/Zhihui-Platform/slidev.git
+[submodule "addons/vitepress"]
 	path = addons/vitepress
-	url = https://github.com/vuejs/vitepress.git
+	url = https://github.com/Zhihui-Platform/vitepress.git

@@ -2,13 +2,15 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="Context-Security-Policy" content="default-src 'self' https://cdnjs.cloudflare.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css">
     <title>Vite App</title>
   </head>
   <body>
     <div id="app"></div>
+    <script>window.global = window</script>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

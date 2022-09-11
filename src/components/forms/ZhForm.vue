@@ -54,7 +54,7 @@ function submit() {
 </script>
 
 <template>
-  <div class="text-center">
+  <div class="text-center" style="z-index: 1">
     <p class="text-xl">{{ form.title }}</p>
     <ElForm>
       <ElFormItem

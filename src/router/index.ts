@@ -12,17 +12,21 @@ const router = createRouter({
       component: () => import("../views/ConfigView.vue"),
     },
     {
-      path: "/textform",
-      component: () => import("../views/FormText.vue"),
-    },
-    {
       path: "/ops/",
       component: () => import("../views/ops/IndexView.vue"),
     },
     {
-      path: "/mdtest",
-      component: () => import("../components/articles/ZhArticle.vue"),
-    }
+      path: "/class/",
+      component: () => import("../views/class/IndexView.vue"),
+    },
+    {
+      path: "/textform",
+      component: () => import("../views/FormText.vue"),
+    },
+    {
+      path: "/editor",
+      component: () => import("../components/editor/ZhEditor.vue"),
+    },
   ],
 });
 
