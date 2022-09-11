@@ -39,14 +39,16 @@ export function compile(str: string) {
         md.utils.escapeHtml(str) +
         "</code></pre>"
       );
-    }
+    },
   });
   md.use(container, "tip", {
     validate: (params) => params.trim().match(/^tip\s+(.*)$/),
     render: (tokens, idx) => {
       const m = tokens[idx].info.trim().match(/^tip\s+(.*)$/);
       if (tokens[idx].nesting === 1) {
-        return `<div class="custom-block tip"><p class="custom-block-title">${md.utils.escapeHtml(m![1])}</p>\n`;
+        return `<div class="custom-block tip"><p class="custom-block-title">${md.utils.escapeHtml(
+          m![1]
+        )}</p>\n`;
       } else {
         return "</div>\n";
       }
@@ -57,7 +59,9 @@ export function compile(str: string) {
     render: (tokens, idx) => {
       const m = tokens[idx].info.trim().match(/^warning\s+(.*)$/);
       if (tokens[idx].nesting === 1) {
-        return `<div class="custom-block warning"><p class="custom-block-title">${md.utils.escapeHtml(m![1])}</p>\n`;
+        return `<div class="custom-block warning"><p class="custom-block-title">${md.utils.escapeHtml(
+          m![1]
+        )}</p>\n`;
       } else {
         return "</div>\n";
       }
@@ -68,7 +72,9 @@ export function compile(str: string) {
     render: (tokens, idx) => {
       const m = tokens[idx].info.trim().match(/^danger\s+(.*)$/);
       if (tokens[idx].nesting === 1) {
-        return `<div class="custom-block danger"><p class="custom-block-title">${md.utils.escapeHtml(m![1])}</p>\n`;
+        return `<div class="custom-block danger"><p class="custom-block-title">${md.utils.escapeHtml(
+          m![1]
+        )}</p>\n`;
       } else {
         return "</div>\n";
       }
@@ -79,7 +85,9 @@ export function compile(str: string) {
     render: (tokens, idx) => {
       const m = tokens[idx].info.trim().match(/^info\s+(.*)$/);
       if (tokens[idx].nesting === 1) {
-        return `<div class="custom-block info"><p class="custom-block-title">${md.utils.escapeHtml(m![1])}</p>\n`;
+        return `<div class="custom-block info"><p class="custom-block-title">${md.utils.escapeHtml(
+          m![1]
+        )}</p>\n`;
       } else {
         return "</div>\n";
       }
@@ -90,7 +98,9 @@ export function compile(str: string) {
     render: (tokens, idx) => {
       const m = tokens[idx].info.trim().match(/^details\s+(.*)$/);
       if (tokens[idx].nesting === 1) {
-        return `<details class="custom-block details"><summary>${md.utils.escapeHtml(m![1])}</summary>\n`;
+        return `<details class="custom-block details"><summary>${md.utils.escapeHtml(
+          m![1]
+        )}</summary>\n`;
       } else {
         return "</details>\n";
       }

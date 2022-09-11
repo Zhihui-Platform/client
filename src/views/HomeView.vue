@@ -7,12 +7,10 @@ const header = useHeaderStore();
 
 header.useFunctions(["close", "minimize", "darkmode", "settings"], "show");
 
-const data = ref('')
+const data = ref("");
 
 // data.value = await import("data:application/javascript;base64,ZXhwb3J0IGRlZmF1bHQgJzEyMyc=");
 // console.log(data)
-
-
 </script>
 
 <template>

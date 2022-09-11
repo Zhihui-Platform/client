@@ -20,16 +20,16 @@ This is a info
 This is a details
 :::
 
-|x|y|z|
-|---|---|---|
-|1|2|3|
-|4|5|6|
-|7|8|9|
+| x   | y   | z   |
+| --- | --- | --- |
+| 1   | 2   | 3   |
+| 4   | 5   | 6   |
+| 7   | 8   | 9   |
 
 ```js {3}
 const x = 1;
 
-x ++;
+x++;
 console.log("OK");
 ```
 
@@ -43,7 +43,6 @@ graph TD
     C -->|Two| E[iPhone]
     C -->|Three| F[Car]
 ```
-
 
 # OK
 
