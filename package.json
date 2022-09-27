@@ -88,7 +88,7 @@
     "@vueuse/integrations": "^9.1.0",
     "@vueuse/motion": "2.0.0-beta.12",
     "@vueuse/router": "^9.1.0",
-    "@vueuse/schema-org": "1.0.0-beta.16",
+    "@vueuse/schema-org": "1.0.2",
     "@vueuse/sound": "^1.1.7",
     "animate.css": "^4.1.1",
     "ant-design-vue": "^3.2.11",
