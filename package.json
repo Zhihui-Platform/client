@@ -165,7 +165,7 @@
     "vscode-oniguruma": "^1.6.2",
     "vue-i18n": "^9.2.2",
     "vue-prism-editor": "2.0.0-alpha.2",
-    "vue-tsc": "^0.39.5",
+    "vue-tsc": "^0.40.0",
     "vue3-menus": "^1.1.2",
     "xss": "^1.0.14"
   }
