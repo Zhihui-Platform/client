@@ -159,7 +159,7 @@
     "vite-plugin-monaco-editor": "^1.1.0",
     "vite-plugin-prismjs": "^0.0.8",
     "vite-plugin-pwa": "^0.12.3",
-    "vite-plugin-vue-markdown": "^0.21.1",
+    "vite-plugin-vue-markdown": "^0.22.0",
     "vitepress": "1.0.0-alpha.13",
     "vitest": "^0.21.0",
     "vscode-oniguruma": "^1.6.2",
