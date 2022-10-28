@@ -160,7 +160,7 @@
     "vite-plugin-prismjs": "^0.0.8",
     "vite-plugin-pwa": "^0.12.3",
     "vite-plugin-vue-markdown": "^0.21.1",
-    "vitepress": "1.0.0-alpha.13",
+    "vitepress": "1.0.0-alpha.26",
     "vitest": "^0.21.0",
     "vscode-oniguruma": "^1.6.2",
     "vue-i18n": "^9.2.2",
