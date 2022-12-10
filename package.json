@@ -131,7 +131,7 @@
     "markdown-it-mark": "^3.0.1",
     "markdown-it-mermaid": "^0.2.5",
     "markdown-it-plantuml": "^1.4.1",
-    "markdown-it-shiki": "^0.5.1",
+    "markdown-it-shiki": "^0.7.0",
     "markdown-it-sub": "^1.0.0",
     "markdown-it-sup": "^1.0.0",
     "markdown-it-task-lists": "^2.1.1",
