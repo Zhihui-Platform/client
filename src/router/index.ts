@@ -17,7 +17,73 @@ const router = createRouter({
     },
     {
       path: "/class/",
-      component: () => import("../views/class/IndexView.vue"),
+      components: {
+        default: () => import("../views/class/IndexView.vue"),
+        SideBar: () => import("../views/class/MenuBar.vue"),
+      },
+    },
+    {
+      path: "/class/home",
+      components: {
+        default: () => import("../views/class/IndexView.vue"),
+        SideBar: () => import("../views/class/MenuBar.vue"),
+      },
+    },
+    {
+      path: "/class/about",
+      components: {
+        default: () => import("../views/class/pages/AboutPage.vue"),
+        SideBar: () => import("../views/class/MenuBar.vue"),
+      },
+    },
+    {
+      path: "/class/home",
+      components: {
+        default: () => import("../views/class/pages/HomePage.vue"),
+        SideBar: () => import("../views/class/MenuBar.vue"),
+      },
+    },
+    // {
+    //   path: "/class/students",
+    //   components: {
+    //     default: () => import("../views/class/pages/StudentsPage.vue"),
+    //     SideBar: () => import("../views/class/MenuBar.vue"),
+    //   },
+    // },
+    {
+      path: "/class/students/:path?",
+      components: {
+        default: () => import("../views/class/pages/StudentsPage.vue"),
+        SideBar: () => import("../views/class/MenuBar.vue"),
+      },
+    },
+    {
+      path: "/class/data",
+      components: {
+        default: () => import("../views/class/pages/DataPage.vue"),
+        SideBar: () => import("../views/class/MenuBar.vue"),
+      },
+    },
+    {
+      path: "/class/management",
+      components: {
+        default: () => import("../views/class/pages/ManagementPage.vue"),
+        SideBar: () => import("../views/class/MenuBar.vue"),
+      },
+    },
+    {
+      path: "/class/histogram",
+      components: {
+        default: () => import("../views/class/pages/HistogramPage.vue"),
+        SideBar: () => import("../views/class/MenuBar.vue"),
+      },
+    },
+    {
+      path: "/class/briefcase",
+      components: {
+        default: () => import("../views/class/pages/BriefcasePage.vue"),
+        SideBar: () => import("../views/class/MenuBar.vue"),
+      },
     },
     {
       path: "/textform",
@@ -26,6 +92,14 @@ const router = createRouter({
     {
       path: "/editor",
       component: () => import("../components/editor/ZhEditor.vue"),
+    },
+    {
+      path: "/slides",
+      component: () => import("@/views/slides/HomeView.vue"),
+    },
+    {
+      path: "/slides/create",
+      component: () => import("@/views/slides/CreateSlides.vue"),
     },
   ],
 });

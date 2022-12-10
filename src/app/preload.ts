@@ -1,4 +1,5 @@
 import { contextBridge, ipcRenderer } from "electron";
+import slides from "./preload-modules/slides";
 
 contextBridge.exposeInMainWorld("zhihui", {
   close(window: string) {
@@ -16,4 +17,5 @@ contextBridge.exposeInMainWorld("zhihui", {
   useSettings() {
     ipcRenderer.send("settings");
   },
+  slides,
 });

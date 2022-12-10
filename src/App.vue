@@ -11,6 +11,9 @@ import {
 } from "@element-plus/icons-vue";
 import { useDark } from "@vueuse/core";
 import { useHeaderStore } from "@/stores/header";
+import { useWindowSize } from "@vueuse/core";
+
+const { width, height } = useWindowSize();
 
 const header = useHeaderStore();
 
@@ -40,22 +43,23 @@ function toConfig() {
 </script>
 
 <template>
-  <div class="drag">
-    <header class="pr-4 pb-8 drag" @contextmenu.prevent>
-      <ElImage
-        key="scale-down"
-        src="/icon.png"
-        style="
-          zoom: 12%;
-          left: 1rem;
-          position: fixed;
-          backdrop-filter: blur(8rem);
-        "
-        class="drag"
-      />
+  <div class="drag" :style="{ height }">
+    <header
+      class="pb-8 drag dark:bg-gray-800 bg-opacity-60 bg-gray-100 rounded"
+      @contextmenu.prevent
+    >
+      <div>
+        <ElImage
+          key="scale-down"
+          src="/icon.png"
+          style="zoom: 6%; left: 1rem; position: fixed"
+          class="drag"
+        >
+        </ElImage>
+      </div>
       <div
-        class="text-right pt-4 no-drag"
-        style="position: fixed; right: 1rem; backdrop-filter: blur(16px)"
+        class="no-drag text-left"
+        style="position: fixed; right: 0; top: 0; backdrop-filter: blur(16px)"
       >
         <ElButton
           v-if="header.settings"
@@ -102,9 +106,22 @@ function toConfig() {
         <ElButton text type="danger" @click="close" circle :icon="Close" />
       </div>
     </header>
-    <main class="px-16 pt-8 no-drag" @contextmenu.prevent>
-      <RouterView />
-    </main>
+    <div class="no-drag" :style="{ height }">
+      <ElRow class="no-drag">
+        <ElCol
+          :span="2"
+          v-if="header.menu"
+          class="dark:bg-gray-800 bg-opacity-60 bg-gray-100 rounded"
+        >
+          <RouterView name="SideBar" />
+        </ElCol>
+        <ElCol :span="22">
+          <div class="px-16 pt-8 no-drag" @contextmenu.prevent>
+            <RouterView class="view main" />
+          </div>
+        </ElCol>
+      </ElRow>
+    </div>
   </div>
 </template>
 

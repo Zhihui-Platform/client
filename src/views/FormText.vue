@@ -58,5 +58,5 @@ $H_2O$
 
 <template>
   <ZhForm :form="testform"></ZhForm>
-  <ZhArticle :text="text"></ZhArticle>
+  <ZhArticle contenteditable :text="text"></ZhArticle>
 </template>
