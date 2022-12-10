@@ -4,12 +4,12 @@
 
 The APIs of Zhihui Platform are designed with RESTful architecture. The same address is set for the same operation object, and the `POST` `GET` `PUT` `DELETE` methods are used to operate separately. It is noted that the related `CURD` operation method is shown in the table below:
 
-| 操作 Action | 方法 Method | 说明 Description |
-| :--- | :--- | :--- |
-| 创建 Create | POST | 在数据库中创建新的对象 Create a new object in the database |
-| 读取 Read | GET | 在数据库中读取相关对象 Read a specific object in the database |
-| 更新 Update | PUT | 在数据库中更新原有的对象 Update a specific object in the database |
-| 删除 Delete | DELETE | 在数据库中删除对象 Delete a specific object in the database |
+| 操作 Action | 方法 Method | 说明 Description                                                  |
+| :---------- | :---------- | :---------------------------------------------------------------- |
+| 创建 Create | POST        | 在数据库中创建新的对象 Create a new object in the database        |
+| 读取 Read   | GET         | 在数据库中读取相关对象 Read a specific object in the database     |
+| 更新 Update | PUT         | 在数据库中更新原有的对象 Update a specific object in the database |
+| 删除 Delete | DELETE      | 在数据库中删除对象 Delete a specific object in the database       |
 
 ## 通用参数 Common Parameters
 

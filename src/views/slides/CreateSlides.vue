@@ -30,7 +30,7 @@ function useCustom() {
         },
         "npm 上寻找全部主题包。"
       ),
-      h("b", null, "请勿在输入时携带 slidev-theme- 前缀")
+      h("b", null, "请勿在输入时携带 slidev-theme- 前缀"),
     ]),
     center: true,
   });
@@ -38,7 +38,7 @@ function useCustom() {
 
 async function setLocation() {
   const result = await window.zhihui.slides.getSlidePath();
-  console.log(result)
+  console.log(result);
 }
 </script>
 
