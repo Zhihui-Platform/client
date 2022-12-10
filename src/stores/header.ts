@@ -9,7 +9,9 @@ export const useHeaderStore = defineStore({
     fullscreen: false,
     darkmode: false,
     settings: false,
+    menu: false,
     window: "main",
+    page: "Zhihui Platform Client",
   }),
   actions: {
     useFunctions(
@@ -20,6 +22,7 @@ export const useHeaderStore = defineStore({
         | "fullscreen"
         | "darkmode"
         | "settings"
+        | "menu"
       )[],
       method: "show" | "hide"
     ) {
@@ -31,6 +34,7 @@ export const useHeaderStore = defineStore({
           "fullscreen",
           "darkmode",
           "settings",
+          "menu",
         ] as const
       ).forEach((f) => {
         if (!functions.includes(f)) {
@@ -42,6 +46,9 @@ export const useHeaderStore = defineStore({
     },
     useWindow(window: string) {
       this.window = window;
+    },
+    usePage(page: string) {
+      this.page = page;
     },
   },
 });

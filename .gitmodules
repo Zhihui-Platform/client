@@ -4,3 +4,6 @@
 [submodule "addons/vitepress"]
 	path = addons/vitepress
 	url = https://github.com/Zhihui-Platform/vitepress.git
+[submodule "addons/slidev-themes"]
+	path = addons/slidev-themes
+	url = https://github.com/slidevjs/themes.git
