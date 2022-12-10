@@ -89,7 +89,7 @@
     "@vueuse/core": "^9.1.0",
     "@vueuse/firebase": "^9.1.0",
     "@vueuse/gesture": "2.0.0-beta.1",
-    "@vueuse/head": "^0.7.9",
+    "@vueuse/head": "^0.9.0",
     "@vueuse/integrations": "^9.1.0",
     "@vueuse/motion": "2.0.0-beta.12",
     "@vueuse/router": "^9.1.0",
