@@ -85,6 +85,10 @@ const router = createRouter({
         SideBar: () => import("../views/class/MenuBar.vue"),
       },
     },
+    {
+      path: "/:pathMatch(.*)*",
+      component: () => import("../views/errors/NotFound.vue"),
+    },
   ],
 });
 
