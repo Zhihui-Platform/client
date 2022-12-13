@@ -42,8 +42,10 @@ declare module '@vue/runtime-core' {
     LoadingMarkdown: typeof import('./src/components/articles/example/LoadingMarkdown.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    Stutable: typeof import('./src/components/students/stutable.vue')['default']
     ZhArticle: typeof import('./src/components/articles/ZhArticle.vue')['default']
     ZhEditor: typeof import('./src/components/editor/ZhEditor.vue')['default']
     ZhForm: typeof import('./src/components/forms/ZhForm.vue')['default']
+    ZhStudentTable: typeof import('./src/components/students/ZhStudentTable.vue')['default']
   }
 }

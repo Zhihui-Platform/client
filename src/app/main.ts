@@ -1,6 +1,5 @@
 import { app, BrowserWindow, dialog, ipcMain, screen, shell } from "electron";
 import { join, resolve } from "node:path";
-import { slides as slidesConfig } from "./configs";
 
 app.whenReady().then(() => {
   const { width: screenWidth, height: screenHeight } =
@@ -104,39 +103,14 @@ app.whenReady().then(() => {
       settingsWindow.show();
     });
   });
-
-  ipcMain.handle("slide:getrecent", () => {
-    return slidesConfig.get();
-  });
-
-  ipcMain.on("slide:opencreate", () => {
-    createSlidesWindow = new BrowserWindow({
-      width: (screenWidth * 3) / 5,
-      height: (screenHeight * 3) / 5,
-      frame: false,
-      show: true,
-      webPreferences: {
-        preload: resolve(__dirname, "zhihui-preload.js"),
-      },
-      parent: mainWindow,
-      modal: true,
-    });
-    createSlidesWindow.loadURL("http://localhost:5173/slides/create");
-    createSlidesWindow.once("ready-to-show", () => {
-      createSlidesWindow.show();
-    });
-  });
-
-  ipcMain.handle("slide:getnewfilepath", async () => {
-    return (
-      await dialog.showOpenDialog(createSlidesWindow, {
-        title: "幻灯片的项目目录",
-        properties: ["openDirectory"],
-      })
-    )[0];
-  });
 });
 
+/**
+ * @function isSafeForExternalOpen
+ * @param url
+ * @returns {boolean}
+ * @description Checks if the url is safe for external open
+ */
 function isSafeForExternalOpen(url: string) {
   const safeHostsUsed = ["localhost", "pages", "cn.sli.dev", "www.npmjs.com"];
   return safeHostsUsed.includes(new URL(url).hostname);

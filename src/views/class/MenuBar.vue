@@ -62,7 +62,6 @@ const menuList = ref<
         class="pt-1"
         text
         size="large"
-        :bg="item.value === active ? true : false"
         :icon="item.icon"
       >
         <span>{{ item.label }}</span>

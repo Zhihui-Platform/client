@@ -43,13 +43,13 @@ const router = createRouter({
         SideBar: () => import("../views/class/MenuBar.vue"),
       },
     },
-    // {
-    //   path: "/class/students",
-    //   components: {
-    //     default: () => import("../views/class/pages/StudentsPage.vue"),
-    //     SideBar: () => import("../views/class/MenuBar.vue"),
-    //   },
-    // },
+    {
+      path: "/class/students",
+      components: {
+        default: () => import("../views/class/pages/StudentsPage.vue"),
+        SideBar: () => import("../views/class/MenuBar.vue"),
+      },
+    },
     {
       path: "/class/students/:path?",
       components: {
@@ -84,22 +84,6 @@ const router = createRouter({
         default: () => import("../views/class/pages/BriefcasePage.vue"),
         SideBar: () => import("../views/class/MenuBar.vue"),
       },
-    },
-    {
-      path: "/textform",
-      component: () => import("../views/FormText.vue"),
-    },
-    {
-      path: "/editor",
-      component: () => import("../components/editor/ZhEditor.vue"),
-    },
-    {
-      path: "/slides",
-      component: () => import("@/views/slides/HomeView.vue"),
-    },
-    {
-      path: "/slides/create",
-      component: () => import("@/views/slides/CreateSlides.vue"),
     },
   ],
 });
