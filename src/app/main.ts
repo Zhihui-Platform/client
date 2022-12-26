@@ -1,6 +1,9 @@
 import { app, BrowserWindow, dialog, ipcMain, screen, shell } from "electron";
 import { join, resolve } from "node:path";
+<<<<<<< HEAD
+=======
 import { slides as slidesConfig } from "./configs";
+>>>>>>> 33e07a147825d918e93765837c5687277ec1b952
 
 app.whenReady().then(() => {
   const { width: screenWidth, height: screenHeight } =
@@ -30,6 +33,7 @@ app.whenReady().then(() => {
       preload: resolve(__dirname, "zhihui-preload.js"),
       sandbox: true,
     },
+    resizable: false,
   });
 
   let settingsWindow: BrowserWindow;
@@ -104,6 +108,16 @@ app.whenReady().then(() => {
       settingsWindow.show();
     });
   });
+<<<<<<< HEAD
+});
+
+/**
+ * @function isSafeForExternalOpen
+ * @param url
+ * @returns {boolean}
+ * @description Checks if the url is safe for external open
+ */
+=======
 
   ipcMain.handle("slide:getrecent", () => {
     return slidesConfig.get();
@@ -137,6 +151,7 @@ app.whenReady().then(() => {
   });
 });
 
+>>>>>>> 33e07a147825d918e93765837c5687277ec1b952
 function isSafeForExternalOpen(url: string) {
   const safeHostsUsed = ["localhost", "pages", "cn.sli.dev", "www.npmjs.com"];
   return safeHostsUsed.includes(new URL(url).hostname);

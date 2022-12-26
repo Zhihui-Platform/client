@@ -36,6 +36,7 @@ declare module "@vue/runtime-core" {
     ElSpace: typeof import("element-plus/es")["ElSpace"];
     ElSwitch: typeof import("element-plus/es")["ElSwitch"];
     ElTimePicker: typeof import("element-plus/es")["ElTimePicker"];
+    ElTooltip: typeof import("element-plus/es")["ElTooltip"];
     ElTreeSelect: typeof import("element-plus/es")["ElTreeSelect"];
     Error: typeof import("./src/components/articles/example/Error.vue")["default"];
     Example: typeof import("./src/components/articles/example/Example.vue")["default"];
@@ -45,5 +46,6 @@ declare module "@vue/runtime-core" {
     ZhArticle: typeof import("./src/components/articles/ZhArticle.vue")["default"];
     ZhEditor: typeof import("./src/components/editor/ZhEditor.vue")["default"];
     ZhForm: typeof import("./src/components/forms/ZhForm.vue")["default"];
+    ZhStudentTable: typeof import("./src/components/students/ZhStudentTable.vue")["default"];
   }
 }

@@ -5,7 +5,7 @@
 
 import { ref, type DefineComponent } from "vue";
 import { useRoute, useRouter } from "vue-router";
-import { ElIcon, ElButton } from "element-plus";
+import { ElButton, ElTooltip } from "element-plus";
 import {
   Avatar,
   UserFilled,
@@ -15,24 +15,21 @@ import {
   Histogram,
   Briefcase,
   SwitchButton,
-  ArrowLeft,
-  ArrowRight,
 } from "@element-plus/icons-vue";
-import { useWindowSize } from "@vueuse/core";
+import { useWindowSize, useDark } from "@vueuse/core";
 
-const { width, height } = useWindowSize();
+const { height } = useWindowSize();
+const darkMode = useDark();
 const route = useRoute();
 const router = useRouter();
 
-const active = ref(route.path ?? "home");
-
-const hovered = ref("home");
+const active = ref(route.params.path ?? "");
 
 const menuList = ref<
   Array<{ label: string; value: string; icon: DefineComponent }>
 >([
   { label: "关于", value: "about", icon: Avatar },
-  { label: "主页", value: "home", icon: HomeFilled },
+  { label: "主页", value: "", icon: HomeFilled },
   { label: "学生", value: "students", icon: UserFilled },
   { label: "信息", value: "data", icon: List },
   { label: "值周", value: "management", icon: Management },
@@ -50,29 +47,33 @@ const menuList = ref<
     }"
   >
     <div v-for="item in menuList" :key="item.value">
-      <ElButton
-        :type="item.value === active ? 'primary' : 'text'"
-        round
-        @mouseover="hovered = item.value"
-        @mouseleave="hovered = ''"
-        @click="
-          active = item.value;
-          router.push(`/class/${item.value}`);
-        "
-        class="pt-1"
-        text
-        size="large"
-        :bg="item.value === active ? true : false"
-        :icon="item.icon"
+      <ElTooltip
+        :content="item.label"
+        :effect="darkMode ? 'dark' : 'light'"
+        placement="right"
       >
-        <span>{{ item.label }}</span>
-      </ElButton>
+        <ElButton
+          :type="item.value === active ? 'primary' : ''"
+          circle
+          @click="
+            active = item.value;
+            router.push(`/class/${item.value}`);
+          "
+          class="pt-1"
+          text
+          size="large"
+          :icon="item.icon"
+        />
+      </ElTooltip>
     </div>
     <div style="bottom: 3rem; left: 1rem; position: absolute">
-      <ElButton circle @click="router.push('/')" text :icon="SwitchButton" />
-      <br />
-      <ElButton circle @click="router.push('/')" text :icon="ArrowLeft" />
-      <ElButton circle @click="router.push('/')" text :icon="ArrowRight" />
+      <ElTooltip
+        content="退出"
+        :effect="darkMode ? 'dark' : 'light'"
+        placement="right"
+      >
+        <ElButton circle @click="router.push('/')" text :icon="SwitchButton" />
+      </ElTooltip>
     </div>
   </div>
 </template>
