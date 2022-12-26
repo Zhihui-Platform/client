@@ -97,7 +97,6 @@ The contribution-related presentation is the same as the deduction, presented in
 - Contribution Remarks: Contribution remarks, allowed to be empty, allowed to be 0 to 150 words.
 - Trace Button: View the contribution process (ie modification, etc.), click to open the trace dialog.
 
-
 ## Volunteer Column
 
 The volunteer column is the record of volunteers in the class or the whole class, mainly divided into school volunteer and off-campus volunteer. The school volunteer is the volunteer work of the school, such as the school's volunteer work, the school's volunteer team, and the school's volunteer work. The off-campus volunteer is the volunteer work of the school, such as the volunteer work of the school, the volunteer team of the school, and the volunteer work of the school. The volunteer work of the school is mainly divided into the following parts:
