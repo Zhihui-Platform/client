@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 智会平台操作文档 The operation document of the Zhihui Platform
 
 ## 学生页面

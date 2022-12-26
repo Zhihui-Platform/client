@@ -1,5 +1,9 @@
 import { app, BrowserWindow, dialog, ipcMain, screen, shell } from "electron";
 import { join, resolve } from "node:path";
+<<<<<<< HEAD
+=======
+import { slides as slidesConfig } from "./configs";
+>>>>>>> 33e07a147825d918e93765837c5687277ec1b952
 
 app.whenReady().then(() => {
   const { width: screenWidth, height: screenHeight } =
@@ -104,6 +108,7 @@ app.whenReady().then(() => {
       settingsWindow.show();
     });
   });
+<<<<<<< HEAD
 });
 
 /**
@@ -112,6 +117,41 @@ app.whenReady().then(() => {
  * @returns {boolean}
  * @description Checks if the url is safe for external open
  */
+=======
+
+  ipcMain.handle("slide:getrecent", () => {
+    return slidesConfig.get();
+  });
+
+  ipcMain.on("slide:opencreate", () => {
+    createSlidesWindow = new BrowserWindow({
+      width: (screenWidth * 3) / 5,
+      height: (screenHeight * 3) / 5,
+      frame: false,
+      show: true,
+      webPreferences: {
+        preload: resolve(__dirname, "zhihui-preload.js"),
+      },
+      parent: mainWindow,
+      modal: true,
+    });
+    createSlidesWindow.loadURL("http://localhost:5173/slides/create");
+    createSlidesWindow.once("ready-to-show", () => {
+      createSlidesWindow.show();
+    });
+  });
+
+  ipcMain.handle("slide:getnewfilepath", async () => {
+    return (
+      await dialog.showOpenDialog(createSlidesWindow, {
+        title: "幻灯片的项目目录",
+        properties: ["openDirectory"],
+      })
+    )[0];
+  });
+});
+
+>>>>>>> 33e07a147825d918e93765837c5687277ec1b952
 function isSafeForExternalOpen(url: string) {
   const safeHostsUsed = ["localhost", "pages", "cn.sli.dev", "www.npmjs.com"];
   return safeHostsUsed.includes(new URL(url).hostname);
