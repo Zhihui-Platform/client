@@ -36,6 +36,7 @@ declare module '@vue/runtime-core' {
     ElSpace: typeof import("element-plus/es")["ElSpace"]
     ElSwitch: typeof import('element-plus/es')['ElSwitch']
     ElTimePicker: typeof import('element-plus/es')['ElTimePicker']
+    ElTooltip: typeof import('element-plus/es')['ElTooltip']
     ElTreeSelect: typeof import('element-plus/es')['ElTreeSelect']
     Error: typeof import('./src/components/articles/example/Error.vue')['default']
     Example: typeof import('./src/components/articles/example/Example.vue')['default']

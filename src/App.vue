@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { RouterView, useRouter } from "vue-router";
+import { RouterView } from "vue-router";
 import {
   Close,
   FullScreen,
@@ -14,14 +14,14 @@ import { useHeaderStore } from "@/stores/header";
 import { useWindowSize } from "@vueuse/core";
 import { UA } from "@/plugins/agent";
 import { ref, watch } from "vue";
+import { useMenuStatus } from "./stores/menuStatus";
 
 const { width, height } = useWindowSize();
 
 const header = useHeaderStore();
-
-const router = useRouter();
-
 const darkmode = useDark();
+const menuStatus = useMenuStatus();
+
 const mainColor = ref(darkmode.value ? "#1e293b" : "#f8fafc");
 watch(
   darkmode,
@@ -145,10 +145,17 @@ function toConfig() {
     </header>
     <div class="no-drag" :style="{ height }">
       <ElRow class="no-drag">
-        <ElCol :span="2" v-if="header.menu" class="rounded">
+        <ElCol
+          :span="menuStatus.expanded ? 2 : 1"
+          v-if="header.menu"
+          class="rounded"
+        >
           <RouterView name="SideBar" />
         </ElCol>
-        <ElCol :span="header.menu ? 22 : 24" class="main rounded-xl">
+        <ElCol
+          :span="header.menu ? (menuStatus.expanded ? 22 : 23) : 24"
+          class="main rounded-xl"
+        >
           <div
             class="px-16 pt-8 pr-8 no-drag"
             :style="{
@@ -157,7 +164,11 @@ function toConfig() {
             }"
             @contextmenu.prevent
           >
-            <RouterView class="view main" />
+            <RouterView class="view main" v-slot="{ Component }">
+              <transition name="el-fade-in">
+                <component :is="Component" />
+              </transition>
+            </RouterView>
           </div>
         </ElCol>
       </ElRow>

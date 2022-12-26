@@ -29,6 +29,7 @@ app.whenReady().then(() => {
       preload: resolve(__dirname, "zhihui-preload.js"),
       sandbox: true,
     },
+    resizable: false,
   });
 
   let settingsWindow: BrowserWindow;
