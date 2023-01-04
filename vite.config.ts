@@ -30,6 +30,7 @@ import { VitePWA as pwa } from "vite-plugin-pwa";
 import monacoEditor from "vite-plugin-monaco-editor";
 import prismjs from "vite-plugin-prismjs";
 import vueMarkdown from "vite-plugin-vue-markdown";
+import { viteMockServe as mock } from "vite-plugin-mock";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -117,6 +118,10 @@ export default defineConfig({
         md.use(require("markdown-it-shiki").default);
       },
       wrapperClasses: "markdown-body vp-doc",
+    }),
+    mock({
+      supportTs: true,
+      mockPath: "./mock/",
     }),
   ],
   resolve: {

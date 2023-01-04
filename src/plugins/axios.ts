@@ -3,7 +3,7 @@ import nprogress from "nprogress";
 import "nprogress/nprogress.css";
 
 const instance = axios.create({
-  baseURL: "https://api.example.com",
+  baseURL: "http://localhost:5173/",
   timeout: 6000,
 });
 
@@ -28,3 +28,5 @@ instance.interceptors.response.use(
     return Promise.reject(error);
   }
 );
+
+export default instance;

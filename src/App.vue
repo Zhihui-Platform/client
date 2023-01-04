@@ -16,16 +16,26 @@ import { UA } from "@/plugins/agent";
 import { ref, watch } from "vue";
 import { useMenuStatus } from "./stores/menuStatus";
 
+import axios from "axios";
+
+axios("/v1/class/account/2020/11", {
+  method: "get",
+})
+  .then((resp) => {
+    console.log(resp);
+  })
+  .catch((err) => console.log(err));
+
 const { width, height } = useWindowSize();
 
 const header = useHeaderStore();
 const darkmode = useDark();
 const menuStatus = useMenuStatus();
 
-const mainColor = ref(darkmode.value ? "#1e293b" : "#f8fafc");
+const mainColor = ref(darkmode.value ? "#2a2b35" : "#fefeff");
 watch(
   darkmode,
-  () => (mainColor.value = darkmode.value ? "#1e293b" : "#f8fafc")
+  () => (mainColor.value = darkmode.value ? "#2a2b35" : "#fefeff")
 );
 
 function fullScreen() {
@@ -51,7 +61,7 @@ function toConfig() {
 
 <template>
   <div
-    class="drag dark:bg-gray-900 bg-opacity-60 bg-gray-200"
+    class="drag dark:bg-zinc-700 bg-opacity-60 bg-sky-100"
     :style="{ height }"
   >
     <header class="pb-8 drag rounded" @contextmenu.prevent>
@@ -184,8 +194,8 @@ function toConfig() {
 body {
   user-select: none;
   overflow-x: hidden;
-  overflow-y: scroll;
-  -webkit-overflow-scrolling: unset;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: none;
 }
 
 ::-webkit-scrollbar {
