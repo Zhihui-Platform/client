@@ -146,7 +146,7 @@
     "nprogress": "^0.2.0",
     "octokit": "^2.0.7",
     "playwright": "^1.25.2",
-    "postcss": "^8.4.16",
+    "postcss": "^8.4.31",
     "prettier": "^2.7.1",
     "prismjs": "^1.29.0",
     "pug": "^3.0.2",
